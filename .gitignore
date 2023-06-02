@@ -1,3 +1,6 @@
+# IntelliJ IDEA
+.idea/
+
 # Compiled class files
 *.class
 
@@ -8,6 +11,7 @@
 *.jar
 *.war
 *.ear
+
 
 # Maven
 target/
