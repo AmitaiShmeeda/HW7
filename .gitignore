@@ -1,0 +1,40 @@
+# IntelliJ IDEA
+.idea/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+
+# Gradle
+build/
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA code inspection
+.idea_modules/
+
+# JUnit test report directory
+test-reports/
+
+# Generated files by popular build tools
+out/
+build/
+dist/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
