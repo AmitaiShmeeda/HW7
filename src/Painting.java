@@ -18,7 +18,7 @@ public class Painting {
         }
         else {
             Element containingElement = pathToElementMap.get(element.getPath());
-			//TODO: add element as a child of containingElement
+            containingElement.addChild(element);
         }
     }
 

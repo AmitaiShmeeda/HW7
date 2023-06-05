@@ -10,6 +10,7 @@ public class ElementDetailsFactory {
     public static void main(String[] args) {
         Element details = ElementDetailsFactory.getPaintingElement("island name: Madagascar, diameter: 8");
     }
+
 //    island length: 20, width: 10
 //    lake length: 30, width: 30
 //    lake/boat material: Timber, length: 12, width: 15

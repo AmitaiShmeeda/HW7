@@ -1,9 +1,13 @@
- 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Element{
     protected double width;
     protected double length;
     private String path;
     private String name;
+
+    protected List<Element> children;
 
     public double getWidth() {
         return width;
@@ -25,9 +29,16 @@ public abstract class Element{
         this.width = width;
         this.length = length;
         this.path= path==null?"":path;
+        children = new ArrayList<>();
+
     }
 
-
+    public void addChild(Element child) {
+        children.add(child);
+    }
+    public List<Element> getChildren() {
+        return children;
+    }
     public String getPath(){
         return path;
     }
@@ -36,5 +47,7 @@ public abstract class Element{
     }
     public abstract String getName();
     public abstract Habitat getHabitat();
+
+
 
 }

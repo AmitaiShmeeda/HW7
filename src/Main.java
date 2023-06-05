@@ -13,6 +13,7 @@ import static java.util.stream.Collectors.toMap;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose from the following options:\n" +
                 "a: Art\n" +
@@ -25,6 +26,8 @@ public class Main {
             paperMenu(scanner);
         }
     }
+
+
     public static Painting readElementDetails(String path) throws IOException {
         Painting painting = new Painting();
         Map<String, Element> files = new HashMap();
@@ -38,6 +41,11 @@ public class Main {
         System.out.println("Enter the path of the painting description");
         String path=scanner.nextLine();
         Painting root= readElementDetails(path);
+
+        // initialize visitors
+        ElementCountVisitor countVisitor = new ElementCountVisitor();
+
+
         System.out.println("Choose from the following options:\n" +
                 "q: quit\n" +
                 "c: count elements\n" +
@@ -48,7 +56,9 @@ public class Main {
         while (!(myString = scanner.nextLine()).equals("q")) {
             switch (myString) {
                 case "c":
-                    //TODO: Add counting behavior
+                    // use count visitor
+                    root.accept(countVisitor);
+                    System.out.println("Total elements: " + countVisitor.getCount());
                     break;
                 case "sh":
                     //TODO: Add short representation behavior
