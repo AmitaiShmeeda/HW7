@@ -1,2 +1,2 @@
-public class LongPrintVisitor implements ElementVisitor{
-}
+//public class LongPrintVisitor implements ElementVisitor{
+//}

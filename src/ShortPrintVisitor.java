@@ -1,2 +1,3 @@
-public class ShortPrintVisitor implements ElementVisitor {
-}
+//public class ShortPrintVisitor implements ElementVisitor {
+//
+//}

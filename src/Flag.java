@@ -11,6 +11,11 @@ public class Flag extends Element {
         this.carrierHeight = carrierHeight;
     }
 
+    @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
+
  
     public Color getColor() {
         return color;

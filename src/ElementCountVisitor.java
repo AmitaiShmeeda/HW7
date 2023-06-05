@@ -1,6 +1,7 @@
 public class ElementCountVisitor implements ElementVisitor {
     int count = 0;
 
+
     @Override
     public void visit(Boat boat) {
         count++;

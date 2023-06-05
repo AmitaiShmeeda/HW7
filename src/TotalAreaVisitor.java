@@ -1,2 +1,2 @@
-public class TotalAreaVisitor implements ElementVisitor{
-}
+//public class TotalAreaVisitor implements ElementVisitor{
+//}

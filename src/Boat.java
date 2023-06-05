@@ -6,7 +6,10 @@ public class Boat extends Element{
         super(width, length, path);
         this.material=m;
     }
-
+    @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
     public Material getMaterial() {
         return material;
     }

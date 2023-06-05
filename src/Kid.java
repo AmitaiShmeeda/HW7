@@ -10,6 +10,11 @@ public class Kid extends Element {
         this.hairColor = hairColor;
     }
 
+    @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
+
  
     public int getBirthYear() {
         return birthYear;

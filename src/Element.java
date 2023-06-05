@@ -49,5 +49,6 @@ public abstract class Element{
     public abstract Habitat getHabitat();
 
 
+    public abstract void accept(ElementVisitor visitor) ;
 
 }

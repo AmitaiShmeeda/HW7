@@ -7,6 +7,11 @@ public class Kite extends Element {
         this.color = color;
     }
 
+    @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
+
      public Color getColor() {
         return color;
     }

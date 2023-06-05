@@ -15,6 +15,11 @@ public class Lake extends Element {
     }
 
     @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
+
+    @Override
     public Habitat getHabitat() {
         return Habitat.AQUATIC;
     }

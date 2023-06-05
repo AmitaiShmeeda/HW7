@@ -13,6 +13,11 @@ public class Tree extends Element {
     }
 
     @Override
+    public void accept(ElementVisitor visitor) {
+        visitor.visit(this);
+    }
+
+    @Override
      public String getName() {
         return "tree";
     }

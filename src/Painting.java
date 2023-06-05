@@ -26,5 +26,11 @@ public class Painting {
         return Painting.class.getSimpleName().toLowerCase();
     }
 
+    public void accept(ElementVisitor visitor) {
+        for (Element element : elementList) {
+            element.accept(visitor);
+        }
+    }
+
 
 }
