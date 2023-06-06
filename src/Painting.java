@@ -11,16 +11,24 @@ public class Painting {
         elementList=new ArrayList<>();
         pathToElementMap = new HashMap<>();
     }
-    public void addElement(Element element){
+
+
+
+
+    public void addElement(Element element) {
         pathToElementMap.put(element.getFullName(), element);
-        if (element.getPath().isEmpty()){
+        if (element.getPath().isEmpty()) {
             elementList.add(element);
-        }
-        else {
-            Element containingElement = pathToElementMap.get(element.getPath());
-            containingElement.addChild(element);
+        } else {
+            Element containingElement = pathToElementMap.get(element.getFullName());
+            if (containingElement.canContain(element)) {
+                containingElement.addChild(element);
+            } else {
+                System.out.println(containingElement.getName() + " cannot contain " + element.getName());
+            }
         }
     }
+
 
     public String getName() {
         return Painting.class.getSimpleName().toLowerCase();

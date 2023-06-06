@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lake extends Element {
-    private List<Element> elements;
+    protected List<Element> elements;
 
     public Lake(String name, double diameter, String path) {
         super(diameter, diameter, path); // lake is a circle, so width and length are the same
@@ -17,6 +17,14 @@ public class Lake extends Element {
     @Override
     public void accept(ElementVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public boolean canContain(Element child) {
+        if (child instanceof Flag) {
+            return false;
+        }
+        return true;
     }
 
     @Override

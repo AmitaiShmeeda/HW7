@@ -40,6 +40,7 @@ public class Main {
     public static void artMenu(Scanner scanner) throws IOException {
         System.out.println("Enter the path of the painting description");
         String path=scanner.nextLine();
+        //System.out.println(path);
         Painting root= readElementDetails(path);
 
         // initialize visitors

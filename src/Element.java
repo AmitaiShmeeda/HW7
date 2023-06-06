@@ -30,7 +30,6 @@ public abstract class Element{
         this.length = length;
         this.path= path==null?"":path;
         children = new ArrayList<>();
-
     }
 
     public void addChild(Element child) {
@@ -47,6 +46,10 @@ public abstract class Element{
     }
     public abstract String getName();
     public abstract Habitat getHabitat();
+
+    public boolean canContain(Element child) {
+        return true;
+    }
 
 
     public abstract void accept(ElementVisitor visitor) ;
