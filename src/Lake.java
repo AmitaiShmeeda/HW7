@@ -3,16 +3,20 @@ import java.util.List;
 
 public class Lake extends Element {
     protected List<Element> elements;
+    protected String name;
 
     public Lake(String name, double diameter, String path) {
         super(diameter, diameter, path); // lake is a circle, so width and length are the same
         this.elements = new ArrayList<>();
+        this.name = name;
     }
 
     @Override
     public String getName() {
-        return super.getPath().split("/")[super.getPath().split("/").length - 1];
+        return this.name ;
     }
+
+    //+  super.getPath().split("/")[super.getPath().split("/").length - 1];
 
     @Override
     public void accept(ElementVisitor visitor) {

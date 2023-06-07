@@ -17,10 +17,13 @@ public class Painting {
 
     public void addElement(Element element) {
         pathToElementMap.put(element.getFullName(), element);
+        System.out.println("element full name: " + element.getFullName());
+        System.out.println("element path: " + element.getPath());
         if (element.getPath().isEmpty()) {
             elementList.add(element);
+            System.out.println(element);
         } else {
-            Element containingElement = pathToElementMap.get(element.getFullName());
+            Element containingElement = pathToElementMap.get(element.getPath());
             if (containingElement.canContain(element)) {
                 containingElement.addChild(element);
             } else {

@@ -2,16 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Island extends Element {
-    private List<Element> elements;
+    protected List<Element> elements;
+    protected String name ;
 
     public Island(String name, double diameter, String path) {
         super(diameter, diameter, path); // island is a circle, so width and length are the same
         this.elements = new ArrayList<>();
+        this.name = name;
     }
 
     @Override
     public String getName() {
-        return super.getPath().split("/")[super.getPath().split("/").length - 1];
+        //return name + super.getPath().split("/")[super.getPath().split("/").length - 1];
+        return this.name;
     }
 
     @Override
