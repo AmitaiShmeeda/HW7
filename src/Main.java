@@ -30,11 +30,11 @@ public class Main {
 
     public static Painting readElementDetails(String path) throws IOException {
         Painting painting = new Painting();
-        Map<String, Element> files = new HashMap();
+        //Map<String, Element> files = new HashMap();
 
         Files.lines(Paths.get(path))
-                .map(str -> ElementDetailsFactory.getPaintingElement(str))
-                .forEach(e-> painting.addElement(e));
+                .map(ElementDetailsFactory::getPaintingElement)
+                .forEach(painting::addElement);
         return painting;
     }
     public static void artMenu(Scanner scanner) throws IOException {
@@ -45,6 +45,7 @@ public class Main {
 
         // initialize visitors
         ElementCountVisitor countVisitor = new ElementCountVisitor();
+        ShortPrintVisitor shortPrintVisitor = new ShortPrintVisitor();
 
 
         System.out.println("Choose from the following options:\n" +
@@ -62,7 +63,9 @@ public class Main {
                     System.out.println("Total elements: " + countVisitor.getCount());
                     break;
                 case "sh":
-                    //TODO: Add short representation behavior
+                    root.accept(shortPrintVisitor);
+                    System.out.println("short print : " + shortPrintVisitor.shortPrintSTR());
+
                     break;
                 case "ta":
                     //TODO: Add area calculation behavior

@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Island extends Element {
-    protected List<Element> elements;
+    //protected List<Element> elements;
     protected String name ;
 
     public Island(String name, double diameter, String path) {
         super(diameter, diameter, path); // island is a circle, so width and length are the same
-        this.elements = new ArrayList<>();
+        this.children = new ArrayList<>();
         this.name = name;
     }
 
@@ -17,9 +17,14 @@ public class Island extends Element {
         return this.name;
     }
 
+
     @Override
     public void accept(ElementVisitor visitor) {
-        visitor.visit(this);
+        visitor.visit(this);  // The visitor visits the current element first
+        for (Element element : children) {
+            //System.out.println("xx "+ element);
+            element.accept(visitor); // Then it visits the children
+        }
     }
 
     @Override
@@ -30,13 +35,13 @@ public class Island extends Element {
     public void add(Element element) {
         // only add if the element is terrestrial or amphibious
         if (element.getHabitat() == Habitat.TERRESTRIAL || element.getHabitat() == Habitat.AMPHIBIAN) {
-            elements.add(element);
+            children.add(element);
         } else {
             System.out.println(element.getName() + " cannot be added to " + this.getName());
         }
     }
 
     public List<Element> getElements() {
-        return elements;
+        return children;
     }
 }
