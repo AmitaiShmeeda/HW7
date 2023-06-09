@@ -71,7 +71,7 @@ public class Main {
                     break;
                 case "ta":
                     root.accept(totalAreaVisitor);
-                    System.out.println(totalAreaVisitor.getTotal_area());
+                    System.out.println(totalAreaVisitor.getTotalArea());
                     break;
                 case "lp":
                     root.accept(longPrintVisitor);
