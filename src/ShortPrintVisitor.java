@@ -1,51 +1,47 @@
 public class ShortPrintVisitor implements ElementVisitor {
 
-    String printRes = "";
+    private StringBuilder printRes;
+
+    public ShortPrintVisitor() {
+        printRes = new StringBuilder();
+    }
+
     @Override
     public void visit(Boat boat) {
-        printRes += boat.getName() + " ,";
-
+        printRes.append(boat.getFullName()).append("\n");
     }
 
     @Override
     public void visit(Kite kite) {
-        printRes += kite.getName() + " ,";
-
+        printRes.append(kite.getFullName()).append("\n");
     }
 
     @Override
     public void visit(Lake lake) {
-        printRes += lake.getName() + " ,";
-
+        printRes.append(lake.getFullName()).append("\n");
     }
 
     @Override
     public void visit(Island island) {
-        printRes += island.getName() + " ,";
-
+        printRes.append(island.getFullName()).append("\n");
     }
 
     @Override
     public void visit(Flag flag) {
-        printRes += flag.getName() + " ,";
-
+        // No specific information to print for the flag itself
     }
 
     @Override
     public void visit(Kid kid) {
-        printRes += kid.getName() + " ,";
-
+        printRes.append(kid.getFullName()).append("\n");
     }
 
     @Override
     public void visit(Tree tree) {
-        printRes += tree.getName() + " ,";
-
+        printRes.append(tree.getFullName()).append("\n");
     }
 
-    public String shortPrintSTR()
-    {
-        return this.printRes;
+    public String shortPrintSTR() {
+        return printRes.toString().trim();
     }
-
 }
