@@ -62,20 +62,20 @@ public class Main {
                 case "c":
                     // use count visitor
                     root.accept(countVisitor);
-                    System.out.println("Total elements: " + countVisitor.getCount());
+                    System.out.println(countVisitor.getCount());
                     break;
                 case "sh":
                     root.accept(shortPrintVisitor);
-                    System.out.println("short print : " + shortPrintVisitor.shortPrintSTR());
+                    System.out.println(shortPrintVisitor.shortPrintSTR());
 
                     break;
                 case "ta":
                     root.accept(totalAreaVisitor);
-                    System.out.println("total erea = " + totalAreaVisitor.getTotal_area());
+                    System.out.println(totalAreaVisitor.getTotal_area());
                     break;
                 case "lp":
                     root.accept(longPrintVisitor);
-                    System.out.println("long print" + longPrintVisitor.longtPrintSTR());
+                    System.out.println(longPrintVisitor.longPrintSTR());
                     break;
 
 
