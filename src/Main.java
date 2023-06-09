@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -45,7 +46,9 @@ public class Main {
         // initialize visitors
         ElementCountVisitor countVisitor = new ElementCountVisitor();
         ShortPrintVisitor shortPrintVisitor = new ShortPrintVisitor();
+        TotalAreaVisitor totalAreaVisitor = new TotalAreaVisitor();
         LongPrintVisitor longPrintVisitor = new LongPrintVisitor();
+
 
         System.out.println("Choose from the following options:\n" +
                 "q: quit\n" +
@@ -59,19 +62,20 @@ public class Main {
                 case "c":
                     // use count visitor
                     root.accept(countVisitor);
-                    System.out.println(countVisitor.getCount());
+                    System.out.println("Total elements: " + countVisitor.getCount());
                     break;
                 case "sh":
                     root.accept(shortPrintVisitor);
-                    System.out.println(shortPrintVisitor.shortPrintSTR());
+                    System.out.println("short print : " + shortPrintVisitor.shortPrintSTR());
 
                     break;
                 case "ta":
-                    //TODO: Add area calculation behavior
+                    root.accept(totalAreaVisitor);
+                    System.out.println("total erea = " + totalAreaVisitor.getTotal_area());
                     break;
                 case "lp":
                     root.accept(longPrintVisitor);
-                    System.out.println(longPrintVisitor.getOutput());
+                    System.out.println("long print" + longPrintVisitor.longtPrintSTR());
                     break;
 
 
