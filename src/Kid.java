@@ -1,4 +1,4 @@
- 
+
 
 public class Kid extends Element {
     private int birthYear;
@@ -15,7 +15,7 @@ public class Kid extends Element {
         visitor.visit(this);
     }
 
- 
+
     public int getBirthYear() {
         return birthYear;
     }
@@ -33,4 +33,5 @@ public class Kid extends Element {
     public Habitat getHabitat() {
         return Habitat.AMPHIBIAN;
     }
+
 }
