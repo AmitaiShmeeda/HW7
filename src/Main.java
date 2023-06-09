@@ -46,6 +46,8 @@ public class Main {
         // initialize visitors
         ElementCountVisitor countVisitor = new ElementCountVisitor();
         ShortPrintVisitor shortPrintVisitor = new ShortPrintVisitor();
+        TotalAreaVisitor totalAreaVisitor = new TotalAreaVisitor();
+        LongPrintVisitor longPrintVisitor = new LongPrintVisitor();
 
 
         System.out.println("Choose from the following options:\n" +
@@ -68,10 +70,12 @@ public class Main {
 
                     break;
                 case "ta":
-                    //TODO: Add area calculation behavior
+                    root.accept(totalAreaVisitor);
+                    System.out.println("total erea = " + totalAreaVisitor.getTotal_area());
                     break;
                 case "lp":
-                    //TODO: Add long representation behavior
+                    root.accept(longPrintVisitor);
+                    System.out.println("long print" + longPrintVisitor.longtPrintSTR());
                     break;
 
 
