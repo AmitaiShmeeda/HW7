@@ -84,15 +84,15 @@ public class Main {
         }
     }
 
-    public static void paperMenu(Scanner scanner){
-        System.out.println("Choose from the following paper:\n" +
+    public static void paperMenu(Scanner scanner) {
+        System.out.println("Choose from the following papers:\n" +
                 "ac: academic paper\n" +
                 "cn: contract\n" +
-                "pr: journal article\n" +
+                "jr: journal article\n" +
                 "bk: book");
-        // TODO: Add a Paper Factory and use it to create a Paper
+
         Paper paper = null;
-        String choice="";
+        String choice = "";
         while (!choice.equals("s")) {
             System.out.println("Choose from the following options:\n" +
                     "a: add element\n" +
@@ -103,19 +103,49 @@ public class Main {
             }
             if (choice.equals("s")) {
                 System.out.println(paper.write());
-
             }
         }
-
-
     }
-    public static Paper paperElementMenu(Scanner scanner, Paper paper){
+
+
+
+
+    public static Paper paperElementMenu(Scanner scanner, Paper paper) {
         System.out.println("Choose from the following elements:\n" +
                 "tb: table\n" +
                 "eq: equation\n" +
                 "d: diagram\n" +
                 "nt: note");
-        // TODO: Use a Paper-Element Factory to create a decorated Hamburger
-        return null;
+
+        String choice = scanner.nextLine();
+        while (!choice.equals("s")) {
+            if (choice.equals("tb")) {
+                paper = new TableDecorator(paper);
+            } else if (choice.equals("eq")) {
+                paper = new EquationDecorator(paper);
+            } else if (choice.equals("d")) {
+                paper = new DiagramDecorator(paper);
+            } else if (choice.equals("nt")) {
+                paper = new NoteDecorator(paper);
+            }
+
+            System.out.println("Choose from the following options:\n" +
+                    "a: add element\n" +
+                    "s: submit");
+            choice = scanner.nextLine();
+            if (choice.equals("a")) {
+                System.out.println("Choose from the following elements:\n" +
+                        "tb: table\n" +
+                        "eq: equation\n" +
+                        "d: diagram\n" +
+                        "nt: note");
+                choice = scanner.nextLine();
+            }
+        }
+
+        return paper;
     }
+
+
+
 }
