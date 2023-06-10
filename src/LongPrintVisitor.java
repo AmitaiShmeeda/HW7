@@ -8,12 +8,12 @@ public class LongPrintVisitor implements ElementVisitor {
 
     @Override
     public void visit(Boat boat) {
-        printRes.append("A boat made of ").append(boat.getMaterial()).append(" material. ");
+        printRes.append("A boat made of ").append(boat.getMaterial().toString().toLowerCase()).append(" material. ");
     }
 
     @Override
     public void visit(Kite kite) {
-        printRes.append("A kite of color: ").append(kite.getColor()).append(". ");
+        printRes.append("A kite of color: ").append(kite.getColor().toString().toLowerCase()).append(". ");
     }
 
     @Override
@@ -24,7 +24,9 @@ public class LongPrintVisitor implements ElementVisitor {
 
     @Override
     public void visit(Island island) {
-        printRes.append("An empty island named ").append(island.getName()).append(". ");
+        String str = (island.children.isEmpty()) ? "empty" : "";
+        String str2 = (island.children.isEmpty()) ? ". " : " containing: ";
+        printRes.append("An" +str+" island named ").append(island.getName()+str2);
     }
 
     @Override
@@ -35,7 +37,8 @@ public class LongPrintVisitor implements ElementVisitor {
     @Override
     public void visit(Kid kid) {
         int age = 2023 - kid.getBirthYear(); // Assuming the current year is 2023
-        printRes.append("A ").append(age).append(" year old kid with ").append(kid.getHairColor()).append(" hair. ");
+        printRes.append("A ").append(age).append(" year old kid with ").append(kid.getHairColor().toString().
+                toLowerCase()).append(" hair. ");
     }
 
     @Override

@@ -14,7 +14,7 @@ class TableDecorator extends PaperDecorator {
     }
 
     public String write() {
-        return paper.write() + " + Table";
+        return paper.write() + " Table";
     }
 }
 
@@ -24,7 +24,7 @@ class EquationDecorator extends PaperDecorator {
     }
 
     public String write() {
-        return paper.write() + " + Equation";
+        return paper.write() + " Equation";
     }
 }
 
@@ -34,7 +34,7 @@ class DiagramDecorator extends PaperDecorator {
     }
 
     public String write() {
-        return paper.write() + " + Diagram";
+        return paper.write() + " Diagram";
     }
 }
 
@@ -44,6 +44,6 @@ class NoteDecorator extends PaperDecorator {
     }
 
     public String write() {
-        return paper.write() + " + Note";
+        return paper.write() + " Note";
     }
 }
