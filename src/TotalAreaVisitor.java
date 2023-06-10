@@ -18,7 +18,7 @@ public class TotalAreaVisitor implements ElementVisitor {
 
     @Override
     public void visit(Kite kite) {
-        double areaKite = kite.getWidth() * kite.getLength();
+        double areaKite = kite.getWidth() * kite.getLength()/2;
         totalArea += areaKite;
     }
 
@@ -42,16 +42,14 @@ public class TotalAreaVisitor implements ElementVisitor {
 
     @Override
     public void visit(Kid kid) {
-        double areaRectangle = (kid.getLength() - 2 * kid.getWidth()) * kid.getWidth();
+        double areaRectangle = (kid.getLength() - kid.getWidth()) * kid.getWidth();
         double areaCircle = Math.PI * Math.pow(kid.getWidth() / 2.0, 2);
-        totalArea += areaRectangle + areaCircle;
+        totalArea += (areaRectangle + areaCircle);
     }
 
     @Override
     public void visit(Tree tree) {
-        double triangleArea = (tree.getLength() * tree.getWidth()) / 2.0;
-        double rectangleArea = tree.getLength() * tree.getWidth();
-        totalArea += triangleArea + rectangleArea;
+        totalArea += (tree.width/2.0 *tree.getLength());
     }
 
     public long getTotalArea() {
